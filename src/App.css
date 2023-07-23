@@ -2,13 +2,42 @@
   text-align: center;
 }
 
+.toggler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
 
+body {
+  transition: background-color 0.3s ease;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dark {
+  background-color: rgb(32, 33, 36);
+  color: #fff;
+}
+
+button {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #1e40af;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
