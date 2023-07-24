@@ -1,13 +1,16 @@
 import React from "react";
+import chairlogo from "../assets/chairlogo.png";
+import chair from "../assets/chair.png";
 
 function Landingpage() {
   return (
     <>
-      <header className="border border-2 border-red-800 h-[15vh] flex">
-        <img src="" alt="" className="" />
+      <header className="h-[15vh] flex items-center justify-between px-4">
+        <img src={chairlogo} alt="" className="h-20 w-20" />
+        <p className="font-logo text-xl">FurniChar</p>
         <button className="h-8 p-2 text-sm">Toggler</button>
       </header>
-      <div className="h-[80vh] font-bold">
+      <div className="h-[80vh] flex flex-row font-bold font-poppin">
         <div className="h-full w-1/2 flex justify-center items-center">
           <div className="flex flex-col w-3/4 justify-center items-center">
             <p className="text-gray-500 w-full text-left text-lg py-4">
@@ -28,7 +31,7 @@ function Landingpage() {
             </form>
           </div>
         </div>
-        <img src="" alt="" />
+        <img src={chair} alt="" className="h-full w-1/2" />
       </div>
     </>
   );
