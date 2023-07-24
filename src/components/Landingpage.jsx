@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import chairlogo from "../assets/chairlogo.png";
 import chair from "../assets/chair.png";
 import "../App.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Landingpage() {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,6 +19,26 @@ function Landingpage() {
 
   const toggleDarkMode = () => {
     setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const emailInput = e.target.form.elements.email;
+
+    if (!emailInput.value.trim()) {
+      toast.error("Please enter your email address.");
+    } else if (!isValidEmail(emailInput.value)) {
+      toast.error("Invalid email format. Please enter a valid email address.");
+    } else {
+      toast.success("You will be notified.");
+      emailInput.value = "";
+    }
+  };
+
+  // Function to validate email format
+  const isValidEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   };
   return (
     <>
@@ -58,11 +80,15 @@ function Landingpage() {
             </h1>
             <form className="w-full flex items-start h-20">
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="Enter your email address *"
                 className="p-4 mr-4 h-full outline outline-1 rounded-md bg-gray-500 bg-opacity-10 w-2/3"
               />
-              <button className="h-full w-1/3 bg-white text-orange-400 outline outline-1 rounded-md hover:bg-orange-400 hover:text-white">
+              <button
+                onClick={handleClick}
+                className="h-full w-1/3 bg-white text-orange-400 outline outline-1 rounded-md hover:bg-orange-400 hover:text-white"
+              >
                 Notify me
               </button>
             </form>
