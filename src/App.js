@@ -1,10 +1,10 @@
-import './App.css';
-import Toggler from "./components/Toggler";
+import "./App.css";
+import Landingpage from "./components/Landingpage";
 
 function App() {
   return (
     <div className="App">
-      <Toggler/>
+      <Landingpage />
     </div>
   );
 }
