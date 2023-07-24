@@ -15,29 +15,15 @@ body {
   transition: background-color 0.3s ease;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* CSS file */
+body.dark {
+  background-color: #2c3e50;
 }
 
-.dark {
-  background-color: rgb(32, 33, 36);
-  color: #fff;
+.dark-mode-bg {
+  background-color: #1a202c;
 }
 
-button {
-  background-color: #1d4ed8;
-  color: #fff;
-}
-
-button:hover {
-  background-color: #1e40af;
-}
-
-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+.dark-mode-text {
+  color: #f9fafb;
 }

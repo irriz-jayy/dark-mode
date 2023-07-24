@@ -1,17 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import chairlogo from "../assets/chairlogo.png";
 import chair from "../assets/chair.png";
-import Footer from "./Footer";
+import "../App.css";
 
 function Landingpage() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const body = document.body;
+    if (darkMode) {
+      body.classList.add("dark");
+    } else {
+      body.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
   return (
     <>
       <header className="h-[15vh] flex items-center justify-between px-4">
         <img src={chairlogo} alt="" className="h-20 w-20" />
         <p className="font-logo text-xl">FurniChar</p>
-        <button className="h-8 p-2 text-sm">Toggler</button>
+        <label htmlFor="toggle" className="relative">
+          <input
+            type="checkbox"
+            id="toggle"
+            className="sr-only"
+            onChange={toggleDarkMode}
+            checked={darkMode}
+          />
+          <div className="w-16 h-8 bg-gray-300 rounded-full">
+            <div
+              className={`h-8 w-8 bg-yellow-500 rounded-full absolute transition-transform ${
+                darkMode ? "transform translate-x-8" : ""
+              }`}
+            />
+          </div>
+          <span
+            className={`absolute inset-y-0 left-0 w-8 h-8 flex items-center justify-center transition-colors ${
+              darkMode ? "text-yellow-500" : "text-gray-600"
+            }`}
+          >
+            {darkMode ? "🌞" : "🌙"}
+          </span>
+        </label>
       </header>
-      <div className="h-[80vh] flex flex-row font-bold font-poppin">
+      <div className="h-[85vh] flex flex-row font-bold font-poppin ">
         <div className="h-full w-1/2 flex justify-center items-center">
           <div className="flex flex-col w-3/4 justify-center items-center">
             <p className="text-gray-500 w-full text-left text-lg py-4">
@@ -33,9 +69,6 @@ function Landingpage() {
           </div>
         </div>
         <img src={chair} alt="" className="h-full w-1/2" />
-      </div>
-      <div className="h-[5vh]">
-        <Footer />
       </div>
     </>
   );
