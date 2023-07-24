@@ -1,6 +1,7 @@
 import React from "react";
 import chairlogo from "../assets/chairlogo.png";
 import chair from "../assets/chair.png";
+import Footer from "./Footer";
 
 function Landingpage() {
   return (
@@ -32,6 +33,9 @@ function Landingpage() {
           </div>
         </div>
         <img src={chair} alt="" className="h-full w-1/2" />
+      </div>
+      <div className="h-[5vh]">
+        <Footer />
       </div>
     </>
   );
