@@ -69,8 +69,8 @@ function Landingpage() {
           </span>
         </label>
       </header>
-      <div className="h-[85vh] flex flex-row font-bold font-poppin ">
-        <div className="h-full w-1/2 flex justify-center items-center">
+      <div className="h-[85vh] flex flex-col sm:flex-col md:flex-col lg:flex-row font-bold font-poppin ">
+        <div className="sm:w-full sm:h-1/2 lg:h-full lg:w-1/2 flex justify-center items-center">
           <div className="flex flex-col w-3/4 justify-center items-center">
             <p className="text-gray-500 w-full text-left text-lg py-4">
               COMING SOON
@@ -94,7 +94,7 @@ function Landingpage() {
             </form>
           </div>
         </div>
-        <img src={chair} alt="" className="h-full w-1/2" />
+        <img src={chair} alt="" className="h-1/2 w-full lg:h-full lg:w-1/2" />
       </div>
     </>
   );
